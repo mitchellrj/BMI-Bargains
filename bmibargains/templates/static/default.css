@@ -1,0 +1,49 @@
+BODY {
+	background-image: url('/static/images/bg.jpg');
+	font-family: Arial, Verdana, sans-serif;
+}
+#main {
+	width: 800px;
+	margin: 10px auto;
+	background: #E1F0FC;
+	filter: alpha(opacity=80); /* internet explorer */
+	-khtml-opacity: 0.8;      /* khtml, old safari */
+	-moz-opacity: 0.8;       /* mozilla, netscape */
+	opacity: 0.8;           /* fx, safari, opera */
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	clear: left;
+	float: left;
+	text-align:left;
+	vertical-align:top;
+	width: 280px;
+	border: 0;
+	margin: 1em 10px;
+}
+
+div {
+	clear: both;
+}
+#main p {
+	margin: 10px;
+}
+
+input, select {
+	text-align: right;
+	clear: right;
+	float: right;
+	width: 480px;
+	border: 1px solid #000;
+	margin: 1em 10px;
+}
+
+.validation-msg {
+	color: #b00;
+	font-size: 80%;
+	text-align: right;
+}

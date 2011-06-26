@@ -1,0 +1,28 @@
+<configure xmlns="http://namespaces.repoze.org/bfg">
+
+  <!-- this must be included for the view declarations to work -->
+  <include package="repoze.bfg.includes" />
+
+  <view
+     view="bmibargains.views.default"
+     renderer="templates/new_search.pt"
+     />
+
+  <view
+     name="remove"
+     view="bmibargains.views.remove"
+     renderer="templates/remove_search.pt"
+     />
+
+  <view
+     name="confirm"
+     view="bmibargains.views.confirm"
+     renderer="templates/confirm_search.pt"
+     />
+
+  <static
+     name="static"
+     path="templates/static"
+     />
+
+</configure>

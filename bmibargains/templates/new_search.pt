@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>bmi bargains</title>
+    <link rel="stylesheet" type="text/css" href="static/default.css" />
+  </head>
+  <body>
+    <div id="main">
+    <h1>bmi bargains</h1>
+    <p tal:condition="added">
+      Search added. Please check your email to confirm. <a href="">Add another?</a>
+    </p>
+	<form action="" method="post" tal:condition="not added">
+      <p class="intro">Enter your email address and relevant search details to be alerted when there are flights available that meet your budget.
+      </p>
+	  <p>Use Control-Click (or Command-Click) to select multiple options in the selection boxes.</p>
+	  <div>
+	    <label for="email">Email:</label>
+	    <input id="email" type="text" name="email"
+	           tal:attributes="value request.POST.get('email')"/>
+	    <p tal:condition="errors.get('email')" tal:content="errors.get('email')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="start_date">Start date:</label>
+	    <input id="start_date" type="text" name="start_date"
+	           tal:attributes="value request.POST.get('start_date')" />
+	    <p tal:condition="errors.get('start_date')" tal:content="errors.get('start_date')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="end_date">End date:</label>
+	    <input id="end_date" type="text" name="end_date"
+	           tal:attributes="value request.POST.get('end_date')" />
+	    <p tal:condition="errors.get('end_date')" tal:content="errors.get('end_date')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="departdaysofweek">I want to depart on a:</label>
+	    <select name="departdaysofweek" id="departdaysofweek" multiple="true">
+    	  <option tal:repeat="dow zip(range(1,8), ('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'))"
+	              tal:attributes="value dow[0];
+	                              selected dow[0] in request.POST.getall('departdaysofweek')"
+	              tal:content="dow[1]">
+	      </option>
+	    </select>
+	    <p tal:condition="errors.get('departdaysofweek')" tal:content="errors.get('departdaysofweek')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="origins">From:</label>
+	    <select name="origins" id="origins" multiple="true">
+    	  <option tal:repeat="route origins"
+	              tal:attributes="value route;
+	                              selected route in request.POST.getall('origins')"
+	              tal:content="route_code_map.get(route, route)">
+	      </option>
+	    </select>
+	    <p tal:condition="errors.get('origins')" tal:content="errors.get('origins')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="destinations">Going to:</label>
+	    <select name="destinations" id="destinations" multiple="true">
+    	  <option tal:repeat="route destinations"
+	              tal:attributes="value route;
+	                              selected route in request.POST.getall('destinations')"
+	              tal:content="route_code_map.get(route, route)">
+	      </option>
+	    </select>
+	    <p tal:condition="errors.get('destinations')" tal:content="errors.get('destinations')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="min_days">Minimum number of days:</label>
+	    <input id="min_days" type="text" name="min_days"
+	           tal:attributes="value request.POST.get('min_days')" />
+	    <p tal:condition="errors.get('min_days')" tal:content="errors.get('min_days')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="max_days">Maximum number of days:</label>
+	    <input id="max_days" type="text" name="max_days"
+	           tal:attributes="value request.POST.get('max_days')" />
+	    <p tal:condition="errors.get('max_days')" tal:content="errors.get('max_days')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="price">Maximum price:</label>
+	    <input id="price" type="text" name="price"
+	           tal:attributes="value request.POST.get('price')" />
+	    <p tal:condition="errors.get('price')" tal:content="errors.get('price')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="adults">Adults:</label>
+	    <input id="adults" type="text" name="adults"
+	           tal:attributes="value request.POST.get('adults')" />
+	    <p tal:condition="errors.get('adults')" tal:content="errors.get('adults')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="children">Children:</label>
+	    <input id="children" type="text" name="children"
+	           tal:attributes="value request.POST.get('children')" />
+	    <p tal:condition="errors.get('children')" tal:content="errors.get('children')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <label for="infants">Infants:</label>
+	    <input id="infants" type="text" name="infants"
+	           tal:attributes="value request.POST.get('infants')" />
+	    <p tal:condition="errors.get('infants')" tal:content="errors.get('infants')" class="validation-msg" />
+	  </div>
+	  <div>
+	    <input type="submit" name="form.submitted" value="Submit" />
+	  </div>
+	  <div class="clearer" />
+	</form>
+	</div>
+  </body>
+</html>

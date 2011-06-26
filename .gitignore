@@ -1,0 +1,5 @@
+Data.fs*
+*.egg-info
+*.pyc
+*.pyo
+.DS_Store

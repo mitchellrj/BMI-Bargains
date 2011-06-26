@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title tal:condition="success">Successfully removed search</title>
+    <title tal:condition="not success">Failed to remove search</title>
+    <link rel="stylesheet" type="text/css" href="static/default.css" />
+  </head>
+  <body>
+    <div id="main">
+    <h1>bmi bargains</h1>
+    <p tal:condition="success">Successfully removed search</p>
+    <p tal:condition="not success">Failed to remove search</p>
+    </div>
+  </body>
+</html>

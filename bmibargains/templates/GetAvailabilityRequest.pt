@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ARC_OTA_AirLowFareSearchRQ>
+  <POS>
+    <Source>
+      <RequestorID ID="${guid}" />
+    </Source>
+  </POS>
+  <OriginDestinationInformation repeat1or2]>
+    <DepartureDate>${date}</DepartureDate>
+    <OriginLocation LocationCode="${origin}" />
+    <DestinationLocation LocationCode="${dest}" />
+  </OriginDestinationInformation>
+  <TravelerInfoSummary>
+    <AirTravelerAvail>
+      <PassengerTypeQuantity Code="ADT" Quantity="${num_adults}" />
+      <PassengerTypeQuantity Code="CHD" Quantity="${num_children}" />
+      <PassengerTypeQuantity Code="INF" Quantity="${num_infants}" />
+    </AirTravelerAvail>
+  </TravelerInfoSummary>
+</ARC_OTA_AirLowFareSearchRQ>

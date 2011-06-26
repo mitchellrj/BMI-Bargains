@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ARC_RouteListRQ>
+  <POS>
+    <Source>
+      <RequestorID ID="${guid}" />
+    </Source>
+  </POS>
+</ARC_RouteListRQ>
